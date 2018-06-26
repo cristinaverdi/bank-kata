@@ -19,10 +19,9 @@ public class StatementPrinterTest {
 
     @Mock BankConsole console;
     private StatementFormatter statementFormatter;
-
-    private Balance balance;
     private List<Transaction> transactions;
     private StatementPrinter statementPrinter;
+    public static final String STATEMENT_HEADER = "DATE | AMOUNT | BALANCE";
 
     @Before public void
     set_up() {
@@ -35,7 +34,7 @@ public class StatementPrinterTest {
     print_header_in_each_statement() {
         statementPrinter.print(transactions);
 
-        verify(console).printStatement("DATE | AMOUNT | BALANCE");
+        verify(console).printStatement(STATEMENT_HEADER);
     }
 
     @Test public void
