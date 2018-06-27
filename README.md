@@ -2,9 +2,9 @@ Bank kata
 ---
 ####  Problem description - Bank kata
 Create a simple bank application with the following features:
-    - Deposit into Account
-    - Withdraw from an Account
-    - Print a bank statement to the console
+* Deposit into Account
+* Withdraw from an Account
+* Print a bank statement to the console
     
 ## Acceptance criteria
 Stament should have transactions in the following format:
