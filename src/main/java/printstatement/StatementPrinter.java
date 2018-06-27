@@ -1,5 +1,6 @@
 package printstatement;
 
+import account.BalanceHistory;
 import transactions.Transaction;
 
 import java.util.List;

@@ -1,9 +1,11 @@
-package printstatement;
+package account;
 
+import account.Account;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import printstatement.StatementPrinter;
 import transactions.TransactionsHistory;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -13,7 +15,8 @@ import static org.mockito.Mockito.verify;
 public class AccountTest {
 
     private Account account;
-    @Mock StatementPrinter statementPrinter;
+    @Mock
+    StatementPrinter statementPrinter;
     @Mock TransactionsHistory transactionsHistory;
 
     @Before public void

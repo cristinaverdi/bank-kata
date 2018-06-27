@@ -1,5 +1,6 @@
-package printstatement;
+package account;
 
+import printstatement.StatementPrinter;
 import transactions.Transaction;
 import transactions.TransactionsHistory;
 
