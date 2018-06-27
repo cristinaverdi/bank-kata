@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class TransactionsHistory {
-    private List<Transaction> history;
     private Clock clock;
+    private List<Transaction> history;
 
     public TransactionsHistory(Clock clock) {
         this.clock = clock;

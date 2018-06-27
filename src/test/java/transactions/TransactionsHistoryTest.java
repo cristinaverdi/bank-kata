@@ -3,13 +3,11 @@ package transactions;
 import java.util.List;
 import org.junit.Test;
 import org.junit.Before;
-import org.mockito.Mock;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.BDDMockito.given;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TransactionsHistoryTest {
@@ -27,7 +25,6 @@ public class TransactionsHistoryTest {
     @Test public void
     create_transaction_and_save_deposit_into_history() {
         transactionshistory.addDeposit(100);
-
         transactions = transactionshistory.findAll();
 
         assertThat(transactions.size(), is(1));

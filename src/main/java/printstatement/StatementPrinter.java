@@ -28,11 +28,13 @@ public class StatementPrinter {
     private void calculateBalanceAndPrint(List<Transaction> transactions) {
         List<Integer> balances = balanceHistory.calculateFrom(transactions);
 
-        int reverse = transactions.size() - 1;
-        for (int i = 0; i < transactions.size(); i++) {
-            String formattedStatement = statementFormatter.format(transactions.get(reverse).date(), transactions.get(reverse).amount() , balances.get(reverse));
-            console.printStatement(formattedStatement);
-            reverse --;
+        for (int i = transactions.size() - 1; i >= 0; i--) {
+            console.printStatement(format(transactions.get(i), balances.get(i)));
         }
     }
+
+    private String format(Transaction transaction, int balance) {
+        return statementFormatter.format(transaction.date(), transaction.amount() , balance);
+    }
+
 }

@@ -1,12 +1,11 @@
 package printstatement;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import transactions.Clock;
+import org.junit.Before;
+import org.junit.runner.RunWith;
 import transactions.TransactionsHistory;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.verify;
 
@@ -14,10 +13,7 @@ import static org.mockito.Mockito.verify;
 public class AccountTest {
 
     private Account account;
-
-    @Mock Clock clock;
     @Mock StatementPrinter statementPrinter;
-
     @Mock TransactionsHistory transactionsHistory;
 
     @Before public void
@@ -30,5 +26,4 @@ public class AccountTest {
         account.deposit(100);
         verify(transactionsHistory).addDeposit(100);
     }
-
 }

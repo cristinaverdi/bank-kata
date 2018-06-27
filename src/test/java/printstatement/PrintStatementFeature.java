@@ -1,26 +1,37 @@
 package printstatement;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.Before;
 import org.mockito.Mock;
+import transactions.Clock;
 import org.mockito.InOrder;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import transactions.TransactionsHistory;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.BDDMockito.given;
 
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
 
-    private Account account;
+    @Mock Clock clock;
     @Mock BankConsole console;
-    @Mock StatementPrinter statementPrinter;
-    @Mock TransactionsHistory transactionsHistory;
+
+    private Account account;
+    private StatementPrinter statementPrinter;
+    private StatementFormatter statementFormatter;
+    private TransactionsHistory transactionsHistory;
 
     @Before public void
     set_up() {
+        given(clock.formattedToday()).willReturn("01/04/2014", "02/04/2014", "10/04/2014");
+
+        statementFormatter = new StatementFormatter();
+        transactionsHistory = new TransactionsHistory(clock);
+        statementPrinter = new StatementPrinter(console, statementFormatter);
+
         account = new Account(transactionsHistory, statementPrinter);
         account.deposit(1000);
         account.withdraw(100);
